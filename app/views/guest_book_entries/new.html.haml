@@ -1,0 +1,16 @@
+%h1 Post in Guestbook
+=form_for @guest_book_entry do |f|
+  .form-area
+    = f.label :name
+    = f.text_field :name
+  .form-area
+    = f.label :email
+    = f.text_field :email
+  .form-area
+    = f.label :content, "Message"
+    = f.text_area :content
+  .form-area
+    = recaptcha_tags
+  .form-area
+    %a#submit.btn.btn-large.btn-block{href: "#"}
+      Post

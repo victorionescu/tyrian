@@ -1,0 +1,14 @@
+%h1 Edit sections
+
+%table
+  %tbody
+    - @sections.each do |section|
+      %tr{class: cycle('odd', 'even')}
+        %td.namecol
+          = section.section_name
+        
+        %td.contentcol= truncate(section.section_content, length: 60)
+          
+        %td.optionscol
+          .button
+            %a.btn.btn-block.btn-info{href: manage_section_path(section)} Edit

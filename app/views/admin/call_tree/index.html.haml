@@ -1,0 +1,21 @@
+- MEMBERSHIPS.each do |membership|
+  - if membership != 'admin' && membership != 'member'
+    - member = Member.where("membership='#{membership}'").first
+    - if member
+      %h2= membership
+      %table
+        %tbody
+          %tr{class: 'odd'}
+            %td.namecol= member.name
+            %td= member.phone_number
+
+
+- if @members.first
+  %h2 Members
+
+- @members.each do |member|            
+  %table
+    %tbody
+      %tr{class: cycle('odd', 'even')}
+        %td.namecol= member.name
+        %td= member.phone_number

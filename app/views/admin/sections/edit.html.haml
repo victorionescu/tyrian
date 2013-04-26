@@ -1,0 +1,13 @@
+%h1
+  Edit section 
+  = @section.section_name
+  
+= form_for @section, url: manage_section_path(@section), method: :put do |f|
+  .form-area
+    = f.label :section_content
+    = f.text_area :section_content
+    
+  .form-area
+    %a#submit.btn.btn-block.btn-large{href: '#'}
+      Update
+  

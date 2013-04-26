@@ -1,0 +1,43 @@
+%h2 Sign up
+
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  
+  .form-area
+    = f.label :email
+    = f.email_field :email, autofocus: true
+    
+  .form-area
+    = f.label :name
+    = f.text_field :name
+    
+  .form-area
+    = f.label :date_of_birth
+    = date_select(resource_name, 'date_of_birth', start_year: 1992)
+    
+  .form-area
+    = f.label :date_raised
+    = date_select(resource_name, 'date_raised', start_year: 1992)
+    
+  .form-area
+    = f.label :address
+    = f.text_area :address
+    
+  .form-area
+    = f.label :phone_number
+    = f.text_field :phone_number
+    
+  .form-area
+    = f.label :password
+    = f.password_field :password
+    
+  .form-area
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+    
+  .form-area
+    %a#submit.btn.btn-block.btn-large{href: '#'} Sign up
+    
+
+    
+  

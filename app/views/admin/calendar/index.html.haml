@@ -1,0 +1,19 @@
+#title-wrapper.clearfix
+  .title
+    %h1 Calendar events
+  = image_tag 'flat-ui/illustrations/calendar.png'
+  %a{href: new_calendar_event_path}
+    %span#add-new-button.fui-plus-24
+    
+%table
+  - @calendar_events.each do |calendar_event|
+    %tr{class: cycle('odd', 'even')}
+      %td.titlecol= calendar_event.title
+      %td.descriptioncol= truncate(calendar_event.description, length: 60)
+      %td.datecol= calendar_event.date
+      %td.optionscol
+        .button
+          = link_to "Remove", manage_calendar_event_path(calendar_event), method: :delete, class: 'btn btn-block btn-danger'
+        .button
+          = link_to "Edit", manage_calendar_event_path(calendar_event), class: 'btn btn-block btn-info'
+      

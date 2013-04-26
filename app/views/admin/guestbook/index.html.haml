@@ -1,0 +1,21 @@
+%h1 Pending entries
+
+%table
+  - @pending_guest_book_entries.each do |guest_book_entry|
+    %tr{class: cycle('odd', 'even')}
+      %td.namecol= guest_book_entry.name
+      %td.optionscol
+        .button
+          = link_to "Accept", manage_guest_book_entry_path(guest_book_entry), method: :post, class: "btn btn-block btn-success"
+        .button
+          = link_to "Reject", manage_guest_book_entry_path(guest_book_entry), method: :delete, class: "btn btn-block btn-danger"
+
+%h1 Live entries
+
+%table
+  - @live_guest_book_entries.each do |guest_book_entry|
+    %tr{class: cycle('odd', 'even')}
+      %td.namecol= guest_book_entry.name
+      %td.optionscol
+        .button
+          = link_to "Remove", manage_guest_book_entry_path(guest_book_entry), method: :delete, class: "btn btn-block btn-danger"

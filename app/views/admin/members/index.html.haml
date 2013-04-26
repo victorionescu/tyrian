@@ -1,0 +1,16 @@
+%table
+  %tbody
+    - @members.each do |member|
+      %tr{class: cycle("odd", "even")}
+        %td.namecol
+          = member.email
+          %br
+          = "(#{member.membership})"
+        %td.optionscol
+          .button
+            %a.btn.btn-block.btn-info{href: manage_member_path(member)} Edit
+          .button
+            - if member.id != current_member.id
+              %a.btn.btn-block.btn-danger{href: "#"} Delete
+  
+  

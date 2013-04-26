@@ -1,0 +1,43 @@
+%h1= "Edit #{@member.email}"
+= form_for @member, html: {multipart: true}, url: manage_member_path(@member), method: :put do |f|
+  .form-area
+    = f.label :name
+    = f.text_field :name
+    
+  .form-area
+    = f.label :date_of_birth
+    = date_select('member', 'date_of_birth', start_year: 1992)
+    
+  .form-area
+    = f.label :date_raised
+    = date_select('member', 'date_raised')
+  
+  - if current_member != @member  
+    .form-area
+      = f.label :membership, 'Lodge title'
+      = f.select :membership, MEMBERSHIPS
+    
+  .form-area
+    = f.label :address
+    = f.text_field :address
+  
+  .form-area
+    = f.label :website
+    = f.text_field :website
+  
+  .form-area
+    = f.label :phone_number
+    = f.text_field :phone_number
+    
+  .form-area
+    = f.label :avatar, 'Picture'
+    
+  .form-area
+    = image_tag @member.avatar.thumb.url
+    
+  .form-area
+    = f.file_field :avatar
+    
+  .form-area
+    %a#submit.btn.btn-block.btn-large{href: '#'} Update
+  
