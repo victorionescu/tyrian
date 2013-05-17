@@ -1,2 +1,4 @@
-%h1 Calendar#index
-%p Find me in app/views/calendar/index.html.haml
+- @events.each do |event|
+  .event-wrapper
+    %h2= "#{event.title} - #{event.date}"
+    %p.event-description= event.description

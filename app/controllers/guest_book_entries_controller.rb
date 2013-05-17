@@ -1,5 +1,6 @@
 class GuestBookEntriesController < ApplicationController
   def index
+    @guest_book_entries = GuestBookEntry.order("created_at DESC").all
   end
   
   def create

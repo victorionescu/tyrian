@@ -1,0 +1,12 @@
+%ul.officer-list.clearfix
+  - MEMBERSHIPS.each do |membership|
+    - if membership != 'admin' && membership != 'member'
+      - member = @members[membership]
+
+      - if member != nil
+        %li
+          .officer-wrapper
+            %h1= membership
+            %h3= member.name
+        
+            = image_tag member.avatar

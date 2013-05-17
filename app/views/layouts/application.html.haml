@@ -9,6 +9,8 @@
     #logo-wrapper
       %a{href: "#{root_path}"}
         %img{src: "/assets/logo.png"}
+
+      %p.lodge-title TYRIAN LODGE #34 - Morristown, New Jersey
     %nav
       .navbar.navbar-inverse
         .navbar-inner
@@ -23,9 +25,10 @@
                 - li_class = controller.controller_path == 'about' ? 'active' : nil
                 %li{class: li_class}
                   = link_to "About", about_path
-                  
-                %li
-                  = link_to "Officers", '#'
+                
+                - li_class = controller.controller_path == 'officers' ? 'active' : nil  
+                %li{class: li_class}
+                  = link_to "Officers", officers_path
                     
                 - li_class = controller.controller_path == 'calendar' ? 'active' : nil
                 %li{class: li_class}

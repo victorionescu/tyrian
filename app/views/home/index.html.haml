@@ -1,1 +1,29 @@
-%h1 Home
+#social-banner.clearfix
+  #banner
+    = image_tag "main-banner.jpg"
+
+  #twitter
+    %h2 Twitter Updates
+
+    - @tweets.each do |tweet|
+      %p.date= tweet.created_at.strftime("%m/%d/%Y, %I:%M%p")
+      %p= tweet.text
+
+#announcements
+  %h2 Announcements
+
+#events
+  %h2 Upcoming Events
+
+  - @events.each do |event|
+    .event-wrapper
+      %p.event-title= "#{event.title} - #{event.date}"
+
+      %p.event-description= event.description
+
+#about
+  %h2 About
+
+  %p
+    = @about.html_safe
+    = link_to "Read more", about_path

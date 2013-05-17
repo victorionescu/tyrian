@@ -1,4 +1,8 @@
-%h1 Guestbook#index
-%p Find me in app/views/guestbook/index.html.haml
 %a.btn.btn-large.btn-block{href: "#{new_guestbook_entry_path}"}
   Post in Guestbook
+
+- @guest_book_entries.each do |guest_book_entry|
+  .guest_book_entry-wrapper
+    %h2= guest_book_entry.name
+
+    %p.content= guest_book_entry.content

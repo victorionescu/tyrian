@@ -54,6 +54,8 @@ Lodge::Application.routes.draw do
   match 'home' => 'home#index', as: :home
   
   match 'about' => 'about#index', as: :about
+
+  match 'officers' => 'officers#index', as: :officers
   
   match 'calendar' => 'calendar#index', as: :calendar
   
